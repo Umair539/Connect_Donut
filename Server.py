@@ -3,7 +3,7 @@ import threading
 from Game import Game
 import pickle
 
-server = '192.168.0.141'
+server = "192.168.0.141"
 port = 54187
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -17,6 +17,7 @@ except socket.error as e:
 s.listen()
 print("Waiting for a connection, Server Started")
 
+
 def step(data, game):
     if data > 0:
         game.col = data - 1
@@ -26,9 +27,8 @@ def step(data, game):
             game.nextp()
     return game
 
-def threaded_client(conn, IDx):
-    game = games[IDx]
 
+def threaded_client(conn, IDx):
     game = games[IDx]
     ids = [id for id, g in games.items() if g is game]
     Player = int(ids.index(IDx) + 1)
@@ -51,19 +51,19 @@ def threaded_client(conn, IDx):
                 break
 
             if data == -3:
-                print(str(game.w) + ' player ' + str(Player))
+                print(str(game.w) + " player " + str(Player))
                 if game.w != 0:
-                    print(f'Player {Player} requested restart')
+                    print(f"Player {Player} requested restart")
                     game.restart()
                 reply = game
 
             elif data > -3:
                 reply = step(data, game)
-                
+
             else:
                 reply = game  # return current state
 
-            print(str(game.w) + ' ' + str(game.p))
+            print(str(game.w) + " " + str(game.p))
             conn.sendall(pickle.dumps(reply))
 
         except Exception as e:
@@ -73,6 +73,7 @@ def threaded_client(conn, IDx):
     print("Lost connection to ID: " + str(IDx))
     conn.close()
     Connected.remove(IDx)
+
 
 games = {}
 
