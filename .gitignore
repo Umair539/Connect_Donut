@@ -1,0 +1,12 @@
+# Temporarily Hidden
+
+.venv/
+
+logs/
+
+__pycache__/
+*.pyc
+
+*.egg-info/
+
+.vscode/

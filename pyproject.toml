@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Connect_Donut"
+version = "0.1.0"
+description = "Connect Four game with donut sprites and local multiplayer functionality."
+authors = [{name = "Umair", email = "umohammed235@outlook.com"}]
+readme = "README.md"
+requires-python = ">=3.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dynamic = ["dependencies"]
+
+[project.urls]
+Homepage = "https://github.com/Umair539/Connect_Donut"
+
+[project.scripts]
+run_server = "Server.Server:start"
+run_client = "Client.Client:start"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["*"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
