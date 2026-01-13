@@ -119,7 +119,7 @@ def menu_screen(win, clock, session_id, W, H, T):
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 try:
-                    n = Network(54187)
+                    n = Network()
                     game = n.connect(session_id)
                     Player = n.receive()
                     run = False

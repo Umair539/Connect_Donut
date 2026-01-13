@@ -122,5 +122,5 @@ class Game:
         ):
             self.w = 2
 
-        elif all(cl[-1] != 0 for cl in self.l):  # if full and no winner
+        elif all(cl[-1] != 0 for cl in self.l):  # if full and no winner: draw
             self.w = 1
