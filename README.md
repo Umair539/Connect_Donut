@@ -59,4 +59,4 @@ Note: `run_client` must be run for each player inside its own dedicated terminal
 * **Private Servers**: Add functionality so users can choose who they want to play with by inputting a code.
 * **Connection Management**: Automatically close a game if a player leaves and doesn't rejoin.
 * **Custom Game Modes**: Add options for custom games (e.g., an 8x8 board with 5-in-a-row to win). 
-  > Note: `game.py` already supports dynamic board logic but implementing dynamic Pygame window size needs investigating.
+  > Note: `game.py` already supports dynamic board logic but implementing dynamic Pygame window size in `client.py` needs investigating.
